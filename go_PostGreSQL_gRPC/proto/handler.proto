@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package handler;
+
+service EmployeeService {
+    rpc GetAllEmployees(GetAllEmployeesRequest) returns (GetAllEmployeesResponse);
+}
+
+message GetAllEmployeesRequest {
+    // No fields needed in this message
+}
+
+message Employee {
+    int32 id = 1;
+    string name = 2;
+    int64 mobile = 3;
+    string email = 4;
+}
+
+message GetAllEmployeesResponse {
+    repeated Employee employees = 1;
+}
